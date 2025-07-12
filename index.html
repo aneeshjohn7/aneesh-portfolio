@@ -297,7 +297,8 @@ https://www.tooplate.com/view/2115-marvel
     <script src="js/custom.js"></script>
      <script>
       $(document).ready(function() {
-        $('.submit-btn').click(function() {
+        $('.submit-btn').click(function(event) {
+          event.preventDefault();
           $.ajax({
             method: 'POST',
             url: 'https://formsubmit.co/ajax/aneesh85@gmail.com',
@@ -308,7 +309,7 @@ https://www.tooplate.com/view/2115-marvel
                 email: $('#email').val(),
                 message: $('#message').val()
             },
-            success: (data) => alert("dfdgdfd"),
+            success: (data) => $('#contacted').removeClass('d-block').addClass('d-none'),
             error: (err) => console.log(err)
         });
         });
