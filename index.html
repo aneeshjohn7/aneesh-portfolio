@@ -309,7 +309,12 @@ https://www.tooplate.com/view/2115-marvel
                 email: $('#email').val(),
                 message: $('#message').val()
             },
-            success: (data) => $('#contacted').removeClass('d-none').addClass('d-block'),
+            success: (data) => {
+              $('#name').val('');
+              $('#email').val('');
+              $('#message').val('');
+              $('#contacted').removeClass('d-none').addClass('d-block');
+            },
             error: (err) => console.log(err)
         });
         });
