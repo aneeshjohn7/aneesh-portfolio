@@ -242,7 +242,8 @@ https://www.tooplate.com/view/2115-marvel
             <div class="contact-form">
               <h2 class="mb-4">Interested to work together? Let's talk</h2>
 
-              <form action="https://formsubmit.co/aneesh85@gmail.com" method="POST">
+              <form action="#" method="POST">
+                <input type="hidden" name="_subject" value="AJOHNTECH new enquiry">
                 <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
                 <div class="row">
                   <div class="col-lg-6 col-12">
@@ -290,6 +291,23 @@ https://www.tooplate.com/view/2115-marvel
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
-
+     <script>
+      $(document).ready(function() {
+        $('.submit-btn').click(function() {
+          $.ajax({
+            method: 'POST',
+            url: 'https://formsubmit.co/ajax/aneesh85@gmail.com',
+            dataType: 'json',
+            accepts: 'application/json',
+            data: {
+                name: "FormSubmit",
+                message: "I'm from Devro LABS"
+            },
+            success: (data) => console.log(data),
+            error: (err) => console.log(err)
+        });
+        });
+      });
+     </script>
   </body>
 </html>
