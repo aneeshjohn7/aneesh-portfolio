@@ -246,6 +246,11 @@ https://www.tooplate.com/view/2115-marvel
                 <input type="hidden" name="_subject" value="AJOHNTECH new enquiry">
                 <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
                 <div class="row">
+                  <div class="col-12 d-none" id="contacted">
+                    <div class="alert alert-success" role="alert">
+                      Thank you for reaching out. I’ll be in touch with you shortly.
+                    </div>
+                  </div>
                   <div class="col-lg-6 col-12">
                     <input type="text" class="form-control" name="name" placeholder="Your Name" id="name">
                   </div>
@@ -257,7 +262,6 @@ https://www.tooplate.com/view/2115-marvel
                   <div class="col-12">
                     <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
                   </div>
-
                   <div class="ml-lg-auto col-lg-5 col-12">
                     <input type="submit" class="form-control submit-btn" value="Send">
                   </div>
@@ -300,10 +304,11 @@ https://www.tooplate.com/view/2115-marvel
             dataType: 'json',
             accepts: 'application/json',
             data: {
-                name: "FormSubmit",
-                message: "I'm from Devro LABS"
+                name: $('#name').val(),
+                email: $('#email').val(),
+                message: $('#message').val()
             },
-            success: (data) => console.log(data),
+            success: (data) => $('#contacted').removeClass('d-none').addClass('d-block'),
             error: (err) => console.log(err)
         });
         });
